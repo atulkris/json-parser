@@ -42,7 +42,7 @@ export class JsonController {
 
   @Get(':id')
   @ApiTags('file')
-  @ApiOperation({ summary: 'Download a processed file' })
+  @ApiOperation({ summary: 'Download a processed file.' })
   downloadJson(
     @Param('id') id: string,
     @Response({ passthrough: true }) res,

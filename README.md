@@ -34,7 +34,12 @@ $ npm install
 
 ## Running the app
 
+- Update .env DB_JSON key with mongodb string
+
 ```bash
+# setup database using docker compose
+$ docker compose up -d
+
 # development
 $ npm run start
 
@@ -43,6 +48,60 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+```
+
+## Seed Data
+
+After starting server run this to seed the data for Table 1
+
+
+```bash
+curl -X 'POST' \
+  'http://localhost:3000/json/health' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '[
+  {"lowerWeight":0,
+  "upperWeight":18.4,
+"category": "Underweight",
+"risk":"Malnutrition risk"
+},
+{"lowerWeight":18.5,
+  "upperWeight":24.9,
+"category": "Normal weight",
+"risk":"Low risk"
+},
+{"lowerWeight":25,
+  "upperWeight":29.9,
+"category": "Overweight",
+"risk":"Enhanced risk"
+},
+{"lowerWeight":30,
+  "upperWeight":34.9,
+"category": "Moderately Obese",
+"risk":"Medium risk"
+},
+{"lowerWeight":35,
+  "upperWeight":39.9,
+"category": "Severely obese",
+"risk":"High risk"
+},
+{"lowerWeight":40,
+  "upperWeight":100,
+"category": "Very severely obese",
+"risk":"Very high risk"
+}
+
+]'
+```
+
+## Swagger
+
+- Refer swagger doc for APIs
+
+```bash
+# swagger doc
+$ http://localhost:3000/rest/
 ```
 
 ## Test
