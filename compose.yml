@@ -1,0 +1,12 @@
+version: "3.5"
+services:
+  mongodb:
+    image : mongo
+    environment:
+      - PUID=2000
+      - PGID=2000
+    volumes:
+      - ./data:/data/db
+    ports:
+      - 27017:27017
+    restart: unless-stopped
